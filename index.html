@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WasteWise – Smart Waste Management Platform</title>
+  <meta name="description" content="An innovative college Environmental Studies project guiding smarter waste segregation, responsible recycling, and sustainable living.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Project notice">
+    <div class="container announcement-content">
+      <span class="badge-mini">🧠 Household Segregation Intelligence</span>
+      <span>College Environmental Studies Project • Indian SWM 4-Stream Framework • LocalStorage Powered</span>
+      <a href="#about" class="announcement-link">Project Scope &amp; Methodology &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="WasteWise Home">
+        <span class="logo-icon-wrap">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </span>
+        <span class="brand-text">Waste<span class="highlight">Wise</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+        <a href="#tracker" class="nav-link highlight-nav-link">Household Intelligence</a>
+        <a href="#classifier" class="nav-link">Classifier</a>
+        <a href="#game" class="nav-link">Segregation Game</a>
+        <a href="#calculator" class="nav-link">Impact Calculator</a>
+        <a href="#guide" class="nav-link">Disposal Guide</a>
+        <a href="#upcycling" class="nav-link">Upcycling</a>
+        <a href="#quiz" class="nav-link">Eco Quiz</a>
+        <a href="#challenges" class="nav-link">Daily Tasks</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <!-- Eco Points Quick Widget & Report Trigger -->
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm nav-report-btn" id="openWeeklyReportNavBtn" title="Open Weekly Segregation Audit Report" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; border-radius: var(--radius-full); display: inline-flex; align-items: center; gap: 0.3rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Audit Report
+        </button>
+        <div class="eco-score-pill" id="navEcoPill" title="Your Sustainability Points from Tracker &amp; Challenges">
+          <span class="leaf-sparkle">✨</span>
+          <span class="eco-score-val" id="navEcoPoints">0</span>
+          <span class="eco-score-lbl">Eco-Pts</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-text-col">
+          <div class="inline-badge">
+            <span class="pulse-dot"></span>
+            Empowering Citizen Environmental Action
+          </div>
+          <h1 class="hero-title">
+            Small Actions.<br>
+            <span class="text-gradient">Cleaner Planet.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Your everyday guide to smarter waste segregation, responsible recycling, and sustainable living. Turn household waste confusion into immediate, positive environmental impact.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#classifier" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Get Started</span>
+            </a>
+            <a href="#guide" class="btn btn-secondary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>Explore Waste Categories</span>
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <span class="check-icon">✓</span> 35+ Waste Items Catalogued
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span> 4 Standard Segregation Streams
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span> 100% Client-Side &amp; Private
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-col">
+          <div class="hero-illustration-card glass-panel">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="illustration-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="window-title">Four-Stream Household Segregation</span>
+            </div>
+            
+            <!-- Custom Segregation Visual Graphic -->
+            <div class="segregation-bins-display">
+              <div class="bin-item bin-green">
+                <div class="bin-body">
+                  <div class="bin-lid"></div>
+                  <div class="bin-canister">
+                    <span class="bin-symbol">🌱</span>
+                    <span class="bin-label">WET</span>
+                  </div>
+                </div>
+                <span class="bin-name">Biodegradable</span>
+                <span class="bin-desc">Food, peels, garden waste</span>
+              </div>
+
+              <div class="bin-item bin-blue">
+                <div class="bin-body">
+                  <div class="bin-lid"></div>
+                  <div class="bin-canister">
+                    <span class="bin-symbol">♻️</span>
+                    <span class="bin-label">DRY</span>
+                  </div>
+                </div>
+                <span class="bin-name">Recyclable</span>
+                <span class="bin-desc">Paper, glass, metals, clean plastics</span>
+              </div>
+
+              <div class="bin-item bin-red">
+                <div class="bin-body">
+                  <div class="bin-lid"></div>
+                  <div class="bin-canister">
+                    <span class="bin-symbol">⚠️</span>
+                    <span class="bin-label">HAZ</span>
+                  </div>
+                </div>
+                <span class="bin-name">Hazardous</span>
+                <span class="bin-desc">Batteries, e-waste, paints</span>
+              </div>
+
+              <div class="bin-item bin-black">
+                <div class="bin-body">
+                  <div class="bin-lid"></div>
+                  <div class="bin-canister">
+                    <span class="bin-symbol">🗑️</span>
+                    <span class="bin-label">RES</span>
+                  </div>
+                </div>
+                <span class="bin-name">Residual</span>
+                <span class="bin-desc">Soiled wraps, sanitary items</span>
+              </div>
+            </div>
+
+            <div class="illustration-footer-stat">
+              <div class="stat-pill">
+                <span class="stat-num" id="heroLiveLoggedCount">0</span>
+                <span class="stat-lbl">Items tracked by you today</span>
+              </div>
+              <a href="#tracker" class="quick-log-btn">+ Log Item</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMATED ENVIRONMENTAL IMPACT COUNTER BAR -->
+      <div class="container">
+        <div class="impact-metrics-bar glass-panel">
+          <div class="metric-block">
+            <div class="metric-icon-wrap green-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <div class="metric-data">
+              <span class="metric-number" data-target="2010000000" id="statGlobalWaste">2.01B</span>
+              <span class="metric-label">Tonnes of municipal waste generated globally/yr (World Bank)</span>
+            </div>
+          </div>
+
+          <div class="metric-divider"></div>
+
+          <div class="metric-block">
+            <div class="metric-icon-wrap amber-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="metric-data">
+              <span class="metric-number" data-target="62" id="statLandfill">62%</span>
+              <span class="metric-label">Of household waste in dumps could have been recycled or composted</span>
+            </div>
+          </div>
+
+          <div class="metric-divider"></div>
+
+          <div class="metric-block">
+            <div class="metric-icon-wrap blue-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="metric-data">
+              <span class="metric-number" data-target="80" id="statRecyclingGain">80%</span>
+              <span class="metric-label">Carbon footprint reduction when aluminum &amp; metals are recycled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHY WASTE SEGREGATION MATTERS -->
+    <section class="section-padding bg-soft" id="why-matters">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Environmental Significance</span>
+          <h2 class="section-title">Why Waste Segregation at Source Matters</h2>
+          <p class="section-subtitle">
+            Once waste is mixed, clean recyclables get contaminated, organic matter produces toxic methane gas in landfills, and hazardous toxins leach into groundwater. Source segregation solves this crisis at step zero.
+          </p>
+        </div>
+
+        <div class="reasons-grid">
+          <div class="reason-card glass-panel">
+            <div class="reason-icon-circle green">
+              <span>🌾</span>
+            </div>
+            <h3>Prevents Landfill Methane</h3>
+            <p>
+              When organic kitchen waste is buried under layers of plastic in landfills without oxygen, it undergoes anaerobic decomposition, emitting potent <strong>methane (CH₄)</strong>—28x more damaging than CO₂.
+            </p>
+            <div class="reason-stat-tag">Avoids potent greenhouse emissions</div>
+          </div>
+
+          <div class="reason-card glass-panel">
+            <div class="reason-icon-circle blue">
+              <span>🔄</span>
+            </div>
+            <h3>Enables the Circular Economy</h3>
+            <p>
+              Clean, segregated paper, glass, and metals can be re-melted and re-manufactured indefinitely, saving up to <strong>95% of the raw energy</strong> required to extract virgin ores and chop down forests.
+            </p>
+            <div class="reason-stat-tag">Conserves virgin natural resources</div>
+          </div>
+
+          <div class="reason-card glass-panel">
+            <div class="reason-icon-circle red">
+              <span>🛡️</span>
+            </div>
+            <h3>Protects Soil &amp; Groundwater</h3>
+            <p>
+              Heavy metals like lead, mercury, and cadmium from improperly discarded batteries and electronics seep through soil as toxic <strong>leachate</strong>, poisoning drinking water aquifers for decades.
+            </p>
+            <div class="reason-stat-tag">Stops toxic chemical contamination</div>
+          </div>
+
+          <div class="reason-card glass-panel">
+            <div class="reason-icon-circle black">
+              <span>🧤</span>
+            </div>
+            <h3>Dignity for Sanitation Workers</h3>
+            <p>
+              Segregating broken glass, hazardous needles, and sanitary items protects waste handlers and informal recyclers from infectious diseases, lacerations, and severe occupational health hazards.
+            </p>
+            <div class="reason-stat-tag">Social justice &amp; frontline safety</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SMART WASTE CLASSIFIER -->
+    <section class="section-padding" id="classifier">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Main Feature</span>
+          <h2 class="section-title">Smart Waste Classifier</h2>
+          <p class="section-subtitle">
+            Unsure how to dispose of an item? Type any common household object or select a category below to get instant color-coded bin recommendations, handling steps, and environmental context.
+          </p>
+        </div>
+
+        <!-- Classifier Search Box -->
+        <div class="classifier-search-box glass-panel">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="classifierInput" 
+              class="classifier-input" 
+              placeholder="Search waste item (e.g., banana peel, soda can, battery, medicine, milk pouch)..."
+              autocomplete="off"
+              aria-label="Search waste item"
+            >
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search input" style="display: none;">&times;</button>
+          </div>
+
+          <!-- Suggested Quick Tags -->
+          <div class="search-suggestions">
+            <span class="suggestion-lbl">Popular searches:</span>
+            <div class="suggestion-chips" id="suggestionChips">
+              <button class="chip" data-query="banana peel">🍌 Banana Peel</button>
+              <button class="chip" data-query="plastic bottle">🧴 Plastic Bottle</button>
+              <button class="chip" data-query="battery">🔋 Battery</button>
+              <button class="chip" data-query="cardboard box">📦 Cardboard</button>
+              <button class="chip" data-query="expired medicine">💊 Medicine</button>
+              <button class="chip" data-query="newspaper">📰 Newspaper</button>
+              <button class="chip" data-query="broken glass">🥛 Broken Glass</button>
+              <button class="chip" data-query="tea bag">🫖 Tea Bag</button>
+              <button class="chip" data-query="styrofoam">🥡 Styrofoam</button>
+            </div>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="category-filter-bar">
+            <span class="filter-lbl">Filter Category:</span>
+            <div class="filter-pills" id="categoryFilterPills" role="tablist">
+              <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">All Items (<span id="countAll">0</span>)</button>
+              <button class="filter-pill pill-green" data-category="biodegradable" role="tab" aria-selected="false">🟢 Biodegradable (<span id="countBio">0</span>)</button>
+              <button class="filter-pill pill-blue" data-category="recyclable" role="tab" aria-selected="false">🔵 Recyclable (<span id="countRec">0</span>)</button>
+              <button class="filter-pill pill-red" data-category="hazardous" role="tab" aria-selected="false">🔴 Hazardous (<span id="countHaz">0</span>)</button>
+              <button class="filter-pill pill-black" data-category="residual" role="tab" aria-selected="false">⚫ Residual (<span id="countRes">0</span>)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classifier Results Grid -->
+        <div class="classifier-results-meta">
+          <span id="resultsCount">Showing 35 waste items</span>
+          <span class="results-note">Click any item card for detailed recycling tips &amp; quick-add to tracker</span>
+        </div>
+
+        <div class="items-grid" id="itemsGrid">
+          <!-- Dynamically populated from JS dataset -->
+        </div>
+
+        <!-- Empty State / Not Found -->
+        <div class="empty-state glass-panel" id="emptyState" style="display: none;">
+          <div class="empty-icon">🔍</div>
+          <h3>Item Not Found in Our Directory</h3>
+          <p id="emptyMessage">We couldn't find a direct match for your search. Try alternative keywords or follow these universal segregation rules:</p>
+          <div class="quick-heuristic-rules">
+            <div class="heuristic-item">
+              <span class="h-badge green">Plant / Food Origin?</span>
+              <span>Compost or dispose in <strong>Green Biodegradable Bin</strong>.</span>
+            </div>
+            <div class="heuristic-item">
+              <span class="h-badge blue">Dry, Clean Paper, Metal, Rigid Plastic?</span>
+              <span>Rinse dry and dispose in <strong>Blue Recyclable Bin</strong>.</span>
+            </div>
+            <div class="heuristic-item">
+              <span class="h-badge red">Chemical, Electronic, Sharps, Battery?</span>
+              <span>Separate safely for <strong>Red Hazardous Collection</strong>.</span>
+            </div>
+            <div class="heuristic-item">
+              <span class="h-badge black">Soiled, Greasy, Non-recyclable Multilayer?</span>
+              <span>Wrap securely for <strong>Black Residual Waste</strong>.</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary mt-3" id="resetClassifierBtn">Show All Items</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL: WASTE ITEM DETAILS -->
+    <div class="modal-backdrop" id="itemModalBackdrop" aria-hidden="true" role="dialog" aria-modal="true" style="display: none;">
+      <div class="modal-box glass-panel" id="itemModal">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+        <div class="modal-content" id="modalContent">
+          <!-- Dynamically filled by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: INTERACTIVE WASTE SEGREGATION CHALLENGE (DRAG & DROP GAME) -->
+    <section class="section-padding bg-soft" id="game">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Interactive Challenge</span>
+          <h2 class="section-title">Waste Segregation Challenge</h2>
+          <p class="section-subtitle">
+            Put your knowledge to the test! Drag the waste item into the correct colored bin, or tap the bin button below. Aim for a 10/10 perfect streak!
+          </p>
+        </div>
+
+        <div class="game-arena glass-panel">
+          <!-- Game Header / Scoreboard -->
+          <div class="game-scoreboard">
+            <div class="score-card">
+              <span class="score-label">Score</span>
+              <span class="score-value" id="gameScore">0</span>
+            </div>
+            <div class="score-card">
+              <span class="score-label">Current Streak</span>
+              <span class="score-value streak-glow" id="gameStreak">0 🔥</span>
+            </div>
+            <div class="score-card">
+              <span class="score-label">Progress</span>
+              <span class="score-value"><span id="gameCurrentIndex">1</span> / <span id="gameTotalRounds">10</span></span>
+            </div>
+            <div class="score-card">
+              <span class="score-label">Best Score</span>
+              <span class="score-value" id="gameHighScore">0</span>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="game-progress-bar-track">
+            <div class="game-progress-bar-fill" id="gameProgressBar" style="width: 10%;"></div>
+          </div>
+
+          <!-- Active Waste Item Conveyor -->
+          <div class="game-card-stage">
+            <div class="stage-instructions">
+              <span>👉 Drag this item to a bin OR tap a bin button below:</span>
+            </div>
+
+            <div 
+              class="draggable-waste-item" 
+              id="currentDraggableItem" 
+              draggable="true"
+              tabindex="0"
+              aria-grabbed="false"
+              aria-label="Current waste item"
+            >
+              <div class="drag-item-icon" id="gameItemIcon">🍌</div>
+              <div class="drag-item-details">
+                <h3 class="drag-item-name" id="gameItemName">Banana Peel</h3>
+                <p class="drag-item-hint" id="gameItemHint">Leftover organic fruit peel from lunch</p>
+              </div>
+              <div class="drag-handle-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="5" r="1"></circle><circle cx="9" cy="12" r="1"></circle><circle cx="9" cy="19" r="1"></circle>
+                  <circle cx="15" cy="5" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="15" cy="19" r="1"></circle>
+                </svg>
+                Drag Me
+              </div>
+            </div>
+
+            <!-- Instant Toast Feedback -->
+            <div class="game-feedback-toast" id="gameFeedbackToast" style="display: none;"></div>
+          </div>
+
+          <!-- The Four Target Bins -->
+          <div class="game-bins-grid">
+            <!-- Green Bin -->
+            <div class="target-bin bin-drop-green" data-bin="biodegradable" tabindex="0" role="button" aria-label="Biodegradable Green Bin">
+              <div class="bin-top">
+                <span class="bin-drop-icon">🌱</span>
+                <span class="bin-tag-name">Green Bin</span>
+              </div>
+              <div class="bin-category-title">Biodegradable</div>
+              <p class="bin-sub">Wet organic &amp; kitchen waste</p>
+              <button class="bin-tap-btn btn-green-soft">Deposit Here</button>
+            </div>
+
+            <!-- Blue Bin -->
+            <div class="target-bin bin-drop-blue" data-bin="recyclable" tabindex="0" role="button" aria-label="Recyclable Blue Bin">
+              <div class="bin-top">
+                <span class="bin-drop-icon">♻️</span>
+                <span class="bin-tag-name">Blue Bin</span>
+              </div>
+              <div class="bin-category-title">Recyclable</div>
+              <p class="bin-sub">Clean dry paper, glass, plastic, metal</p>
+              <button class="bin-tap-btn btn-blue-soft">Deposit Here</button>
+            </div>
+
+            <!-- Red Bin -->
+            <div class="target-bin bin-drop-red" data-bin="hazardous" tabindex="0" role="button" aria-label="Hazardous Red Bin">
+              <div class="bin-top">
+                <span class="bin-drop-icon">⚠️</span>
+                <span class="bin-tag-name">Red Bin</span>
+              </div>
+              <div class="bin-category-title">Hazardous</div>
+              <p class="bin-sub">Chemicals, e-waste, batteries, meds</p>
+              <button class="bin-tap-btn btn-red-soft">Deposit Here</button>
+            </div>
+
+            <!-- Black Bin -->
+            <div class="target-bin bin-drop-black" data-bin="residual" tabindex="0" role="button" aria-label="Residual Black Bin">
+              <div class="bin-top">
+                <span class="bin-drop-icon">🗑️</span>
+                <span class="bin-tag-name">Black Bin</span>
+              </div>
+              <div class="bin-category-title">Residual</div>
+              <p class="bin-sub">Soiled, sanitary &amp; non-recyclables</p>
+              <button class="bin-tap-btn btn-black-soft">Deposit Here</button>
+            </div>
+          </div>
+
+          <div class="game-controls-bar">
+            <button class="btn btn-outline" id="gameRestartBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 4v6h-6"></path>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              Restart Round
+            </button>
+            <div class="game-sound-toggle">
+              <button class="btn btn-sm btn-ghost" id="soundToggleBtn" aria-label="Toggle Sound Effects">
+                <span id="soundIcon">🔊</span> Sound On
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Result Modal -->
+        <div class="modal-backdrop" id="gameResultBackdrop" style="display: none;" role="dialog" aria-modal="true">
+          <div class="modal-box glass-panel text-center">
+            <div class="result-trophy-wrap">
+              <span class="trophy-emoji" id="gameResultEmoji">🏆</span>
+            </div>
+            <h2 class="result-title" id="gameResultTitle">Round Complete!</h2>
+            <p class="result-subtitle" id="gameResultSubtitle">Here is how well you segregated:</p>
+
+            <div class="result-stats-row">
+              <div class="r-stat">
+                <span class="r-stat-val" id="resultFinalScore">0</span>
+                <span class="r-stat-lbl">Final Score</span>
+              </div>
+              <div class="r-stat">
+                <span class="r-stat-val" id="resultAccuracy">0%</span>
+                <span class="r-stat-lbl">Accuracy</span>
+              </div>
+              <div class="r-stat">
+                <span class="r-stat-val" id="resultMaxStreak">0</span>
+                <span class="r-stat-lbl">Max Streak</span>
+              </div>
+            </div>
+
+            <div class="result-feedback-box" id="resultFeedbackBox">
+              <!-- Personalized encouraging text -->
+            </div>
+
+            <div class="modal-actions mt-4">
+              <button class="btn btn-primary btn-lg" id="playAgainBtn">Play Another Round</button>
+              <a href="#tracker" class="btn btn-secondary btn-lg" id="gameToTrackerBtn">Log Activity in Tracker</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: HOUSEHOLD SEGREGATION INTELLIGENCE & DASHBOARD -->
+    <section class="section-padding" id="tracker">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <span class="section-tag">🧠 Household Segregation Intelligence</span>
+          <h2 class="section-title">Household Waste Intelligence &amp; Analysis</h2>
+          <p class="section-subtitle">
+            Transform everyday disposal into actionable household intelligence. Track segregation accuracy, detect recurring bin mistakes, review your household score, and inspect real-time weekly reports.
+          </p>
+        </div>
+
+        <!-- Dashboard Action & Status Bar -->
+        <div class="dashboard-toolbar glass-panel">
+          <div class="toolbar-left">
+            <span class="toolbar-pill">
+              <span class="pulse-dot"></span>
+              Household Accuracy: <strong id="kpiAccuracyBadge">0%</strong>
+            </span>
+            <span class="toolbar-trend-badge" id="kpiWeeklyDeltaBadge">
+              <span id="kpiWeeklyDeltaIcon">📈</span> <span id="kpiWeeklyDeltaText">Comparing 7-day trend...</span>
+            </span>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn btn-primary btn-sm" id="openWeeklyReportModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              Weekly Household Report
+            </button>
+            <a href="#mistake-detection" class="btn btn-outline btn-sm">
+              <span>⚠️ Misplacement Alerts</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 1. Top Household Dashboard KPI Cards Grid -->
+        <div class="kpi-cards-grid mt-4">
+          <div class="kpi-card glass-panel">
+            <div class="kpi-header">
+              <span class="kpi-icon">📦</span>
+              <span class="kpi-label">Total Waste Recorded</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-val" id="kpiTotalQty">0</span>
+              <span class="kpi-unit">Units</span>
+            </div>
+            <span class="kpi-sub" id="kpiTotalRecords">0 total logged entries</span>
+          </div>
+
+          <div class="kpi-card glass-panel border-green-soft">
+            <div class="kpi-header">
+              <span class="kpi-icon">✅</span>
+              <span class="kpi-label">Correctly Segregated</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-val text-success" id="kpiCorrectQty">0</span>
+              <span class="kpi-unit">Units</span>
+            </div>
+            <span class="kpi-sub" id="kpiCorrectPct">0% of household waste</span>
+          </div>
+
+          <div class="kpi-card glass-panel border-red-soft">
+            <div class="kpi-header">
+              <span class="kpi-icon">⚠️</span>
+              <span class="kpi-label">Incorrectly Segregated</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-val text-danger" id="kpiIncorrectQty">0</span>
+              <span class="kpi-unit">Units</span>
+            </div>
+            <span class="kpi-sub text-danger" id="kpiIncorrectPct">0% misplacement rate</span>
+          </div>
+
+          <div class="kpi-card glass-panel border-primary-soft">
+            <div class="kpi-header">
+              <span class="kpi-icon">🎯</span>
+              <span class="kpi-label">Segregation Accuracy</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-val" id="kpiAccuracyPct">0%</span>
+            </div>
+            <span class="kpi-sub" id="kpiWeekComparisonText">Last 7 days vs previous 7 days</span>
+          </div>
+        </div>
+
+        <!-- 2. Household Segregation Score & Mistake Detection Section -->
+        <div class="score-and-mistakes-grid mt-4" id="mistake-detection">
+          <!-- Left: Dynamic Household Segregation Score Card -->
+          <div class="score-card-panel glass-panel">
+            <div class="panel-header-flex">
+              <h3 class="card-heading">
+                <span class="icon-wrap">🏆</span> Household Segregation Score
+              </h3>
+              <span class="score-grade-pill" id="scoreGradePill">Grade A</span>
+            </div>
+
+            <div class="score-layout-flex">
+              <!-- SVG Score Progress Gauge -->
+              <div class="score-gauge-wrap">
+                <svg class="score-gauge-svg" viewBox="0 0 120 120">
+                  <circle class="gauge-bg" cx="60" cy="60" r="50" />
+                  <circle class="gauge-fill" id="scoreGaugeFill" cx="60" cy="60" r="50" />
+                </svg>
+                <div class="gauge-inner-text">
+                  <span class="gauge-score-num" id="householdScoreVal">0</span>
+                  <span class="gauge-score-max">/ 100</span>
+                </div>
+              </div>
+
+              <!-- Score Explanation & Trend -->
+              <div class="score-meta-col">
+                <h4 class="score-tier-title" id="householdScoreTierTitle">Calculating Household Rating...</h4>
+                <p class="score-delta-text" id="householdScoreDeltaText">Based on verified disposal accuracy &amp; safety.</p>
+                <div class="score-formula-box">
+                  <strong>Mathematical Formulation:</strong>
+                  <code>Score = (Accuracy% × 0.70) + (Habit Consistency × 15) - (Hazardous Penalty × 15)</code>
+                </div>
+                <p class="score-advice" id="householdScoreAdvice">Log your daily household waste to unlock personalized optimization recommendations.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Segregation Mistake Detection & Contamination Alerts -->
+          <div class="mistake-detection-panel glass-panel">
+            <div class="panel-header-flex">
+              <h3 class="card-heading">
+                <span class="icon-wrap">🚨</span> Segregation Mistake Detection
+              </h3>
+              <span class="badge-mini" id="mistakeCountBadge">0 Mistakes Detected</span>
+            </div>
+            <p class="mistake-panel-subtitle">
+              Algorithmic pattern recognition scanning your household records for frequently misplaced items, cross-contamination, and toxic disposal risks.
+            </p>
+
+            <div class="mistake-alerts-container" id="mistakeAlertsContainer">
+              <!-- Dynamically populated from JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Household Waste Logging & Donut Analytics Row -->
+        <div class="tracker-dashboard-grid mt-4">
+          <!-- Left Column: Intelligent Logging Form -->
+          <div class="tracker-input-col">
+            <div class="tracker-form-card glass-panel" id="logFormWrapper">
+              <div class="panel-header-flex">
+                <h3 class="card-heading">
+                  <span class="icon-wrap">📝</span> <span id="formTitleText">Log Household Waste</span>
+                </h3>
+                <span class="badge-soft" id="formModeBadge">New Record</span>
+              </div>
+
+              <!-- Form with Datalist Suggestions -->
+              <form id="trackerForm" class="tracker-form">
+                <input type="hidden" id="editEntryId" value="">
+
+                <div class="form-group">
+                  <label for="trackItemName">Waste Item (Type or Select)</label>
+                  <input 
+                    type="text" 
+                    id="trackItemName" 
+                    list="wasteItemDatalist"
+                    placeholder="e.g. Banana peel, Battery, Plastic bottle, Pizza box" 
+                    required 
+                    autocomplete="off"
+                  >
+                  <!-- Native Auto-Complete Datalist populated from 36 items -->
+                  <datalist id="wasteItemDatalist"></datalist>
+                  <small class="form-hint">Tip: Start typing to auto-detect recommended category and bin stream.</small>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="trackCategory">Target Waste Stream</label>
+                    <select id="trackCategory" required>
+                      <option value="" disabled selected>Select category...</option>
+                      <option value="biodegradable">🟢 Biodegradable (Wet)</option>
+                      <option value="recyclable">🔵 Recyclable (Dry)</option>
+                      <option value="hazardous">🔴 Hazardous / E-Waste</option>
+                      <option value="residual">⚫ Residual (Landfill)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="trackQuantity">Quantity (Items / Units)</label>
+                    <input 
+                      type="number" 
+                      id="trackQuantity" 
+                      min="1" 
+                      max="100" 
+                      value="1" 
+                      required
+                    >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="trackBinUsed">Bin Actually Used by Household</label>
+                    <select id="trackBinUsed" required>
+                      <option value="" disabled selected>Which bin did it go into?</option>
+                      <option value="green">🟢 Green Bin (Wet Organic)</option>
+                      <option value="blue">🔵 Blue Bin (Dry Recyclables)</option>
+                      <option value="red">🔴 Red / Yellow Bin (Hazardous E-Waste)</option>
+                      <option value="black">⚫ Black / Grey Bin (Residual Landfill)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="trackDate">Date of Disposal</label>
+                    <input type="date" id="trackDate" required>
+                  </div>
+                </div>
+
+                <!-- Live Intelligent Validation Banner -->
+                <div class="smart-validation-banner" id="smartValidationBanner" style="display: none;">
+                  <div class="val-icon" id="valIcon">💡</div>
+                  <div class="val-text" id="valText">
+                    Checking item against standard Indian municipal segregation rules...
+                  </div>
+                </div>
+
+                <div class="form-actions-group">
+                  <button type="submit" class="btn btn-primary btn-block" id="addEntryBtn">
+                    <span>+ Record Household Disposal</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-block" id="cancelEditBtn" style="display: none;">
+                    Cancel Editing
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Sustainability Progress Badge Card -->
+            <div class="sustainability-badge-card glass-panel mt-4">
+              <div class="badge-card-header">
+                <span class="tier-icon" id="userTierIcon">🌱</span>
+                <div>
+                  <h4 class="tier-title" id="userTierTitle">Eco Novice</h4>
+                  <span class="tier-sub" id="userTierSub">Level 1 Sustainability Citizen</span>
+                </div>
+              </div>
+              <div class="tier-progress-wrap">
+                <div class="tier-labels">
+                  <span>Progress to Next Rank</span>
+                  <span id="tierProgressPercent">0%</span>
+                </div>
+                <div class="tier-progress-track">
+                  <div class="tier-progress-fill" id="tierProgressFill" style="width: 10%;"></div>
+                </div>
+                <span class="tier-hint" id="tierHint">Segregate 5 more items to reach Green Apprentice!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Breakdown & Statistics -->
+          <div class="tracker-stats-col">
+            <!-- 4 Quick Stats Counters -->
+            <div class="tracker-summary-row">
+              <div class="summary-chip green">
+                <span class="sum-icon">🌱</span>
+                <div class="sum-info">
+                  <span class="sum-num" id="sumBio">0</span>
+                  <span class="sum-lbl">Biodegradable (Wet)</span>
+                </div>
+              </div>
+
+              <div class="summary-chip blue">
+                <span class="sum-icon">♻️</span>
+                <div class="sum-info">
+                  <span class="sum-num" id="sumRec">0</span>
+                  <span class="sum-lbl">Recyclable (Dry)</span>
+                </div>
+              </div>
+
+              <div class="summary-chip red">
+                <span class="sum-icon">⚠️</span>
+                <div class="sum-info">
+                  <span class="sum-num" id="sumHaz">0</span>
+                  <span class="sum-lbl">Hazardous / E-Waste</span>
+                </div>
+              </div>
+
+              <div class="summary-chip black">
+                <span class="sum-icon">🗑️</span>
+                <div class="sum-info">
+                  <span class="sum-num" id="sumRes">0</span>
+                  <span class="sum-lbl">Residual (Landfill)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Category Progress Chart (Dynamic SVG & CSS) -->
+            <div class="chart-panel glass-panel mt-4">
+              <div class="panel-header-flex">
+                <h3 class="card-heading">
+                  <span class="icon-wrap">📊</span> Household Waste Composition Breakdown
+                </h3>
+                <span class="badge-soft" id="totalItemsBadge">Total: 0 Items</span>
+              </div>
+
+              <div class="chart-content-layout">
+                <!-- SVG Donut Chart -->
+                <div class="donut-chart-container">
+                  <svg class="donut-svg" viewBox="0 0 100 100" id="donutSvg">
+                    <circle class="donut-bg" cx="50" cy="50" r="38" />
+                    <circle class="donut-segment segment-bio" id="donutBio" cx="50" cy="50" r="38" />
+                    <circle class="donut-segment segment-rec" id="donutRec" cx="50" cy="50" r="38" />
+                    <circle class="donut-segment segment-haz" id="donutHaz" cx="50" cy="50" r="38" />
+                    <circle class="donut-segment segment-res" id="donutRes" cx="50" cy="50" r="38" />
+                  </svg>
+                  <div class="donut-center-text">
+                    <span class="donut-count" id="donutCenterCount">0</span>
+                    <span class="donut-label">Items</span>
+                  </div>
+                </div>
+
+                <!-- Custom Interactive Legend -->
+                <div class="chart-legend" id="chartLegend">
+                  <div class="legend-row">
+                    <span class="legend-color-dot dot-bio"></span>
+                    <span class="legend-name">Biodegradable (Kitchen &amp; Wet)</span>
+                    <span class="legend-pct" id="pctBio">0%</span>
+                  </div>
+                  <div class="legend-row">
+                    <span class="legend-color-dot dot-rec"></span>
+                    <span class="legend-name">Dry Recyclables (Paper, Glass, Metal, PET)</span>
+                    <span class="legend-pct" id="pctRec">0%</span>
+                  </div>
+                  <div class="legend-row">
+                    <span class="legend-color-dot dot-haz"></span>
+                    <span class="legend-name">Special Hazardous / E-Waste (Batteries, CFLs)</span>
+                    <span class="legend-pct" id="pctHaz">0%</span>
+                  </div>
+                  <div class="legend-row">
+                    <span class="legend-color-dot dot-res"></span>
+                    <span class="legend-name">Residual / Landfill Waste (Soiled, Non-Recyclable)</span>
+                    <span class="legend-pct" id="pctRes">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Log Table with Edit & Correct Actions -->
+            <div class="log-table-panel glass-panel mt-4">
+              <div class="panel-header-flex">
+                <h3 class="card-heading">
+                  <span class="icon-wrap">📋</span> Household Disposal Diary &amp; Audit Trail
+                </h3>
+                <div class="table-actions">
+                  <button class="btn btn-sm btn-ghost text-danger" id="clearAllLogsBtn" title="Clear all local tracker records">
+                    Clear Log
+                  </button>
+                </div>
+              </div>
+
+              <div class="table-scroll-wrapper">
+                <table class="activity-table" id="activityTable">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Waste Item</th>
+                      <th>Category</th>
+                      <th>Bin Used</th>
+                      <th>Segregation Status</th>
+                      <th>Qty</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="activityTableBody">
+                    <!-- Populated via script.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Behavioural Insights: Your Household's Waste Habits -->
+        <div class="habits-section mt-5" id="household-habits">
+          <div class="section-header text-center mb-4">
+            <span class="section-tag">🔬 Behavioural Analytics</span>
+            <h3 class="section-title" style="font-size: 2rem;">Your Household's Waste Habits</h3>
+            <p class="section-subtitle">
+              Intelligent answers generated directly from your actual recorded disposal patterns and mistake frequencies.
+            </p>
+          </div>
+
+          <div class="habits-grid">
+            <div class="habit-card glass-panel">
+              <div class="habit-icon">📊</div>
+              <h4>Which category do we generate most?</h4>
+              <p class="habit-answer" id="habitTopCategory">Analyzing disposal volume...</p>
+            </div>
+
+            <div class="habit-card glass-panel">
+              <div class="habit-icon">⚠️</div>
+              <h4>Which items do we missegregate?</h4>
+              <p class="habit-answer" id="habitMisplacedItems">Auditing misplaced waste items...</p>
+            </div>
+
+            <div class="habit-card glass-panel">
+              <div class="habit-icon">📈</div>
+              <h4>Are our habits improving over time?</h4>
+              <p class="habit-answer" id="habitAccuracyTrend">Comparing weekly segregation accuracy...</p>
+            </div>
+
+            <div class="habit-card glass-panel">
+              <div class="habit-icon">🎯</div>
+              <h4>What should we focus on next week?</h4>
+              <p class="habit-answer" id="habitNextWeekFocus">Generating customized target priorities...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Personalized Recommendation Engine -->
+        <div class="recommendations-section mt-5">
+          <div class="section-header text-center mb-4">
+            <span class="section-tag">💡 Tailored Interventions</span>
+            <h3 class="section-title" style="font-size: 2rem;">Personalized Recommendations for Your Home</h3>
+            <p class="section-subtitle">
+              Actionable advice calculated by our JavaScript rule-based engine to rectify your household's specific segregation bottlenecks.
+            </p>
+          </div>
+
+          <div class="recommendations-grid" id="recommendationsContainer">
+            <!-- Dynamically populated from JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL: WEEKLY HOUSEHOLD WASTE REPORT (PRINTABLE & SAVABLE AS PDF) -->
+    <div class="modal-backdrop" id="weeklyReportModalBackdrop" style="display: none;" role="dialog" aria-modal="true">
+      <div class="modal-box glass-panel report-modal-box">
+        <button class="modal-close-btn" id="closeWeeklyReportModalBtn" aria-label="Close weekly report">&times;</button>
+        
+        <div class="report-content-printable" id="weeklyReportPrintArea">
+          <!-- Report Header -->
+          <div class="report-header">
+            <div class="report-branding">
+              <span class="report-logo">WasteWise Intelligence</span>
+              <span class="report-type">Weekly Household Segregation Audit</span>
+            </div>
+            <div class="report-dates" id="reportDateRange">Audit Period: Last 7 Days</div>
+          </div>
+
+          <!-- Report Key Metrics -->
+          <div class="report-metrics-row">
+            <div class="rep-card">
+              <span class="rep-lbl">Total Waste</span>
+              <span class="rep-val" id="repTotalQty">0 Units</span>
+              <span class="rep-sub" id="repTotalItems">0 items</span>
+            </div>
+            <div class="rep-card">
+              <span class="rep-lbl">Segregation Accuracy</span>
+              <span class="rep-val text-success" id="repAccuracy">0%</span>
+              <span class="rep-sub" id="repAccuracyDelta">Compared to prior week</span>
+            </div>
+            <div class="rep-card">
+              <span class="rep-lbl">Misplaced Items</span>
+              <span class="rep-val text-danger" id="repMisplacedQty">0</span>
+              <span class="rep-sub">Avoidable contamination</span>
+            </div>
+            <div class="rep-card">
+              <span class="rep-lbl">Household Score</span>
+              <span class="rep-val" id="repScore">0 / 100</span>
+              <span class="rep-sub" id="repGrade">Grade A</span>
+            </div>
+          </div>
+
+          <!-- Category Breakdown Table -->
+          <div class="report-section mt-3">
+            <h4 class="report-heading">1. Waste Stream Composition (Indian SWM Guidelines)</h4>
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Stream</th>
+                  <th>Recommended Bin</th>
+                  <th>Quantity (Units)</th>
+                  <th>Share (%)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="repCategoryTableBody">
+                <!-- Dynamically generated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Most Misplaced Items Section -->
+          <div class="report-section mt-3">
+            <h4 class="report-heading">2. Frequently Misplaced Waste Items</h4>
+            <div id="repMisplacedItemsList">
+              <!-- Dynamically generated -->
+            </div>
+          </div>
+
+          <!-- 3 Priority Recommendations -->
+          <div class="report-section mt-3">
+            <h4 class="report-heading">3. Recommended Actions for Next Week</h4>
+            <ol class="report-actions-list" id="repRecommendationsList">
+              <!-- Dynamically generated -->
+            </ol>
+          </div>
+
+          <!-- Report Footer -->
+          <div class="report-footer">
+            <p>Generated by WasteWise – Household Segregation Intelligence Platform. Indian Solid Waste Management Rules 2016 Compliant.</p>
+          </div>
+        </div>
+
+        <!-- Modal Action Buttons (Hidden during printing) -->
+        <div class="report-modal-actions no-print mt-4">
+          <button class="btn btn-primary btn-lg" id="printReportBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print / Save as PDF
+          </button>
+          <button class="btn btn-secondary btn-lg" id="dismissReportBtn">Close Report</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: ENVIRONMENTAL IMPACT CALCULATOR -->
+    <section class="section-padding bg-soft" id="calculator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Quantified Sustainability</span>
+          <h2 class="section-title">Environmental Impact Calculator</h2>
+          <p class="section-subtitle">
+            Curious about what your segregation actually accomplishes? This model projects the cumulative ecological benefits of diverting organic and recyclable waste away from mixed dumpsites.
+          </p>
+        </div>
+
+        <!-- Calculator Main Display -->
+        <div class="calculator-card glass-panel">
+          <div class="calc-top-sync">
+            <span class="sync-status">
+              <span class="pulse-dot"></span> Automatically synced with your <strong><span id="calcSyncedItemCount">0</span> logged tracker items</strong>
+            </span>
+            <button class="btn btn-sm btn-secondary" id="toggleScenarioBtn">Open Scenario Estimator</button>
+          </div>
+
+          <!-- Interactive Simulator Drawer (Optional What-If slider) -->
+          <div class="scenario-simulator-drawer" id="scenarioDrawer" style="display: none;">
+            <div class="simulator-inner">
+              <h4>🎯 What-If Scenario Estimator</h4>
+              <p>Simulate how much impact your entire household would make over time if you segregate consistently:</p>
+              
+              <div class="slider-row">
+                <label for="weeklyItemsSlider">Weekly household segregated items: <strong id="sliderValueDisplay">25 items/week</strong></label>
+                <input type="range" id="weeklyItemsSlider" min="5" max="150" value="25" class="custom-slider">
+              </div>
+
+              <div class="duration-pills" id="durationPills">
+                <button class="duration-btn active" data-weeks="4">1 Month</button>
+                <button class="duration-btn" data-weeks="26">6 Months</button>
+                <button class="duration-btn" data-weeks="52">1 Year</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Quantified Metrics Grid -->
+          <div class="impact-cards-grid">
+            <!-- Metric 1: Waste Diverted -->
+            <div class="impact-metric-card green-border">
+              <div class="impact-metric-icon">⚖️</div>
+              <div class="impact-metric-body">
+                <span class="metric-val" id="impactDivertedKg">0.00</span>
+                <span class="metric-unit">kg</span>
+                <h4 class="metric-title">Waste Diverted from Landfills</h4>
+                <p class="metric-desc">Mass of recyclable materials &amp; compostable wet waste prevented from rotting in municipal dumping grounds.</p>
+              </div>
+            </div>
+
+            <!-- Metric 2: CO2e Emissions Avoided -->
+            <div class="impact-metric-card blue-border">
+              <div class="impact-metric-icon">☁️</div>
+              <div class="impact-metric-body">
+                <span class="metric-val" id="impactCo2Kg">0.00</span>
+                <span class="metric-unit">kg CO₂e</span>
+                <h4 class="metric-title">Greenhouse Gas Emissions Avoided</h4>
+                <p class="metric-desc">Net reduction in landfill methane (CH₄) and avoided fossil emissions from virgin manufacturing.</p>
+              </div>
+            </div>
+
+            <!-- Metric 3: Trees Conserved Equivalent -->
+            <div class="impact-metric-card teal-border">
+              <div class="impact-metric-icon">🌳</div>
+              <div class="impact-metric-body">
+                <span class="metric-val" id="impactTrees">0.00</span>
+                <span class="metric-unit">Trees</span>
+                <h4 class="metric-title">Tree Deforestation Offset</h4>
+                <p class="metric-desc">Equivalent forest preservation calculated from recovered fiber, corrugated cardboard, and paper pulp.</p>
+              </div>
+            </div>
+
+            <!-- Metric 4: Energy Conserved -->
+            <div class="impact-metric-card amber-border">
+              <div class="impact-metric-icon">⚡</div>
+              <div class="impact-metric-body">
+                <span class="metric-val" id="impactEnergyKwh">0.00</span>
+                <span class="metric-unit">kWh</span>
+                <h4 class="metric-title">Embodied Energy Conserved</h4>
+                <p class="metric-desc">Equal to powering approximately <strong id="impactSmartphoneCount">0</strong> smartphone charges or LED illumination hours.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Methodology Disclaimer -->
+          <div class="academic-methodology-note">
+            <div class="note-icon">ℹ️</div>
+            <div class="note-text">
+              <strong>Academic Methodology &amp; Mathematical Assumptions:</strong>
+              These figures are illustrative educational approximations derived from standard Environmental Protection Agency (EPA WARM) and Central Pollution Control Board (CPCB) lifecycle coefficients: 
+              <em>Average item mass ~0.18 kg; Organic composting methane avoidance ~0.52 kg CO₂e/kg; Dry recyclables energy recovery ~1.4 kWh/kg; Paper recycling tree equivalent factor ~0.017 trees/kg paper.</em>
+              Actual real-world reductions depend on local processing efficiencies and transport logistics.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SMART DISPOSAL GUIDE -->
+    <section class="section-padding" id="guide">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Knowledge Base</span>
+          <h2 class="section-title">Smart Disposal Guide</h2>
+          <p class="section-subtitle">
+            Master the standard 4-bin color code framework. Deep-dive into correct preparation procedures, common contamination traps, and safety protocols.
+          </p>
+        </div>
+
+        <div class="guide-cards-grid">
+          <!-- Card 1: Biodegradable -->
+          <div class="guide-card stream-green glass-panel">
+            <div class="guide-header">
+              <span class="stream-icon">🌱</span>
+              <div>
+                <span class="stream-color-badge">Green Bin</span>
+                <h3 class="stream-title">Biodegradable / Wet Waste</h3>
+              </div>
+            </div>
+            
+            <div class="guide-section">
+              <h4>Typical Household Examples:</h4>
+              <p>Fruit &amp; vegetable peelings, leftover cooked food, eggshells, coffee grounds, garden leaves, tea leaves, coconut husks, spoiled bread.</p>
+            </div>
+
+            <div class="guide-section">
+              <h4>Correct Preparation:</h4>
+              <ul class="guide-checklist">
+                <li>Drain excess gravy or liquids before discarding into wet bin.</li>
+                <li>Remove plastic packaging, labels, twist ties, or rubber bands.</li>
+                <li>Never throw polythene bags into green bins (use compostable liners or paper).</li>
+              </ul>
+            </div>
+
+            <div class="guide-callout mistake-callout">
+              <strong>⚠️ Common Mistake:</strong> Throwing greasy cardboard or food wrappers into this bin. Only organic matter can decompose into healthy compost.
+            </div>
+          </div>
+
+          <!-- Card 2: Recyclable -->
+          <div class="guide-card stream-blue glass-panel">
+            <div class="guide-header">
+              <span class="stream-icon">♻️</span>
+              <div>
+                <span class="stream-color-badge">Blue Bin</span>
+                <h3 class="stream-title">Dry Recyclable Waste</h3>
+              </div>
+            </div>
+            
+            <div class="guide-section">
+              <h4>Typical Household Examples:</h4>
+              <p>PET water bottles, soda cans, aluminum foil, glass bottles, clean cardboard boxes, newspapers, magazines, HDPE milk jugs, tin containers.</p>
+            </div>
+
+            <div class="guide-section">
+              <h4>Correct Preparation:</h4>
+              <ul class="guide-checklist">
+                <li><strong>The "Rinse &amp; Dry" Rule:</strong> Wash off milk/food residue to prevent insect pests and mold.</li>
+                <li>Flatten cartons and crush plastic bottles to save transport volume.</li>
+                <li>Keep dry paper separated from damp or oily surfaces.</li>
+              </ul>
+            </div>
+
+            <div class="guide-callout mistake-callout">
+              <strong>⚠️ Common Mistake:</strong> Recycling greasy pizza delivery boxes. Oil permanently binds to paper fibers, ruining the pulping batch at recycling mills.
+            </div>
+          </div>
+
+          <!-- Card 3: Hazardous -->
+          <div class="guide-card stream-red glass-panel">
+            <div class="guide-header">
+              <span class="stream-icon">⚠️</span>
+              <div>
+                <span class="stream-color-badge">Red / Yellow Bin</span>
+                <h3 class="stream-title">Hazardous &amp; Special E-Waste</h3>
+              </div>
+            </div>
+            
+            <div class="guide-section">
+              <h4>Typical Household Examples:</h4>
+              <p>Lithium &amp; alkaline batteries, broken CFL/fluorescent tubes, expired medicines, paint cans, insecticide sprays, mobile phone chargers, wires, chemicals.</p>
+            </div>
+
+            <div class="guide-section">
+              <h4>Correct Preparation:</h4>
+              <ul class="guide-checklist">
+                <li>Tape battery terminals with electrical tape to avoid accidental short circuits.</li>
+                <li>Store broken glass or tube lights in heavy paper or a rigid cardboard carton.</li>
+                <li>Deliver directly to municipal hazardous drives or certified e-waste drop centers.</li>
+              </ul>
+            </div>
+
+            <div class="guide-callout alert-callout">
+              <strong>🛑 Safety Precaution:</strong> Never crush or incinerate aerosol cans or lithium batteries. They can ignite or burst under high temperature or pressure.
+            </div>
+          </div>
+
+          <!-- Card 4: Residual -->
+          <div class="guide-card stream-black glass-panel">
+            <div class="guide-header">
+              <span class="stream-icon">🗑️</span>
+              <div>
+                <span class="stream-color-badge">Black / Grey Bin</span>
+                <h3 class="stream-title">Residual / Non-Recyclable</h3>
+              </div>
+            </div>
+            
+            <div class="guide-section">
+              <h4>Typical Household Examples:</h4>
+              <p>Sanitary pads, disposable diapers, soiled band-aids, thermal cash receipts, multilayered metallized chip pouches (MLP), vacuum dust, cigarette butts.</p>
+            </div>
+
+            <div class="guide-section">
+              <h4>Correct Preparation:</h4>
+              <ul class="guide-checklist">
+                <li>Wrap personal sanitary waste securely in newspaper or biodegradable bags.</li>
+                <li>Ensure these items are sent to authorized waste-to-energy or sanitary landfills.</li>
+                <li>Minimize single-use purchases to reduce this stream as much as possible.</li>
+              </ul>
+            </div>
+
+            <div class="guide-callout note-callout">
+              <strong>📌 Municipal Variation:</strong> Color designations and collection schedules vary across municipalities and countries. Check your local municipal guidelines.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: REUSE AND UPCYCLING IDEAS -->
+    <section class="section-padding bg-soft" id="upcycling">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Creative Circularity</span>
+          <h2 class="section-title">Household Upcycling &amp; DIY Ideas</h2>
+          <p class="section-subtitle">
+            The most sustainable product is the one already in your possession. Explore practical, zero-cost DIY projects to give discarded household materials a brand new life.
+          </p>
+        </div>
+
+        <!-- Upcycling Category Filters -->
+        <div class="upcycle-filter-pills" id="upcycleFilterPills">
+          <button class="upcycle-pill active" data-filter="all">All Projects</button>
+          <button class="upcycle-pill" data-filter="plastic">Plastic Bottles</button>
+          <button class="upcycle-pill" data-filter="glass">Glass Jars</button>
+          <button class="upcycle-pill" data-filter="cardboard">Cardboard &amp; Paper</button>
+          <button class="upcycle-pill" data-filter="fabric">Textiles &amp; Fabric</button>
+          <button class="upcycle-pill" data-filter="organic">Kitchen Organic</button>
+        </div>
+
+        <div class="upcycle-cards-grid" id="upcycleCardsGrid">
+          <!-- Dynamically populated from JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: ENVIRONMENTAL QUIZ -->
+    <section class="section-padding" id="quiz">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Interactive Learning</span>
+          <h2 class="section-title">Environmental Studies Quiz</h2>
+          <p class="section-subtitle">
+            Challenge your eco-literacy across 10 essential questions on waste management, decomposition physics, and global circular systems.
+          </p>
+        </div>
+
+        <div class="quiz-container glass-panel">
+          <!-- Quiz Active Screen -->
+          <div id="quizActiveScreen">
+            <div class="quiz-top-bar">
+              <span class="quiz-progress-text">Question <strong id="quizQIndex">1</strong> of <strong id="quizQTotal">10</strong></span>
+              <span class="quiz-score-badge">Score: <strong id="quizScoreText">0</strong></span>
+            </div>
+
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill" id="quizProgressBar" style="width: 10%;"></div>
+            </div>
+
+            <div class="quiz-question-box">
+              <span class="quiz-topic-tag" id="quizTopicTag">Biodegradation</span>
+              <h3 class="quiz-question-title" id="quizQuestionText">How long does a standard plastic water bottle take to break down in nature?</h3>
+            </div>
+
+            <div class="quiz-options-list" id="quizOptionsList">
+              <!-- Dynamically populated option buttons -->
+            </div>
+
+            <!-- Instant Answer Explanation Box -->
+            <div class="quiz-explanation-box" id="quizExplanationBox" style="display: none;">
+              <div class="expl-header">
+                <span class="expl-icon" id="explIcon">💡</span>
+                <span class="expl-title" id="explTitle">Did you know?</span>
+              </div>
+              <p class="expl-body" id="explBody">Plastic bottles don't truly biodegrade; they slowly fragment into microscopic microplastics over 450 years.</p>
+              <button class="btn btn-primary mt-3" id="quizNextBtn">Next Question &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Quiz Completion Screen -->
+          <div id="quizFinishedScreen" style="display: none;" class="text-center py-4">
+            <div class="result-badge-icon" id="quizFinalBadge">🎓</div>
+            <h2 class="result-title" id="quizFinalTitle">Quiz Completed!</h2>
+            <p class="result-subtitle" id="quizFinalSubtitle">You scored <strong id="quizFinalScoreDisplay">0 / 10</strong></p>
+
+            <div class="quiz-grade-card glass-panel my-4" id="quizGradeCard">
+              <!-- Personalized feedback based on score -->
+            </div>
+
+            <div class="quiz-actions-row">
+              <button class="btn btn-primary btn-lg" id="quizRestartBtn">Retake Quiz</button>
+              <a href="#classifier" class="btn btn-secondary btn-lg">Explore Classifier</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: DAILY ECO CHALLENGE -->
+    <section class="section-padding bg-soft" id="challenges">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Habit Tracker</span>
+          <h2 class="section-title">Daily Eco Challenges</h2>
+          <p class="section-subtitle">
+            Small daily commitments compound into massive environmental preservation. Check off each goal as you finish it today!
+          </p>
+        </div>
+
+        <div class="challenges-wrapper glass-panel">
+          <div class="challenges-summary-bar">
+            <div class="streak-box">
+              <span class="streak-emoji">🔥</span>
+              <div>
+                <span class="streak-count" id="dailyStreakCount">1 Day</span>
+                <span class="streak-sub">Active Green Streak</span>
+              </div>
+            </div>
+            
+            <div class="completed-counter-box">
+              <span class="comp-text">Completed Today: <strong id="completedTodayCount">0</strong> / 5</span>
+              <button class="btn btn-sm btn-outline" id="resetChallengesBtn" title="Reset check marks for a fresh day">Reset Today's Tasks</button>
+            </div>
+          </div>
+
+          <div class="challenge-items-list" id="challengeItemsList">
+            <!-- Dynamically populated from JS with persistent checkbox state -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: ABOUT AND PROJECT INFORMATION -->
+    <section class="section-padding" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Project Documentation</span>
+          <h2 class="section-title">About the WasteWise Project</h2>
+          <p class="section-subtitle">
+            A comprehensive Environmental Studies academic project addressing municipal solid waste segregation challenges through human-centered technology.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glass-panel">
+            <div class="about-icon">🌍</div>
+            <h3>The Global Waste Crisis</h3>
+            <p>
+              Rapid urbanization and consumer packaging expansion have overwhelmed municipal waste management infrastructures. Across the globe, over <strong>2 billion tonnes</strong> of municipal solid waste are generated annually, with at least 33% managed in an environmentally unsafe manner (open dumping or uncontrolled burning).
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon">🏠</div>
+            <h3>Why Household Segregation is Vital</h3>
+            <p>
+              Once waste is mixed in a single bin, cross-contamination renders up to 85% of clean paper and plastic unrecyclable. Segregation at the point of origin (the household kitchen) is the single most cost-effective and essential intervention to unlock municipal composting and circular manufacturing.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon">🎯</div>
+            <h3>How WasteWise Bridges the Gap</h3>
+            <p>
+              Citizen confusion regarding "which bin does this go into?" is the primary cause of contamination. WasteWise provides instant, unambiguous material classification, gamified learning, habit tracking, and quantified impact feedback to drive long-term behavioral change.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon">⚖️</div>
+            <h3>Scope &amp; Technical Limitations</h3>
+            <p>
+              WasteWise is an educational platform. Waste processing rules and color coding can vary by local municipality, country, and vendor contracts. Impact numbers are mathematical estimates based on published lifecycle literature (EPA WARM &amp; CPCB guidelines) rather than physical IoT sensor telemetry.
+            </p>
+          </div>
+        </div>
+
+        <!-- Waste Hierarchy Infographic Panel -->
+        <div class="hierarchy-panel glass-panel mt-5">
+          <h3 class="text-center mb-3">The Environmental Waste Hierarchy (Inverted Pyramid)</h3>
+          <p class="text-center text-muted mb-4">The globally recognized standard for prioritizing waste management actions:</p>
+          
+          <div class="hierarchy-pyramid">
+            <div class="hier-tier tier-1">
+              <span class="hier-rank">1. MOST PREFERRED</span>
+              <strong>Refuse &amp; Reduce</strong>
+              <small>Prevent waste generation at the source</small>
+            </div>
+            <div class="hier-tier tier-2">
+              <span class="hier-rank">2. SECOND BEST</span>
+              <strong>Reuse &amp; Repair</strong>
+              <small>Extend product lifecycle through DIY and maintenance</small>
+            </div>
+            <div class="hier-tier tier-3">
+              <span class="hier-rank">3. CIRCULAR RECOVERY</span>
+              <strong>Recycle &amp; Compost</strong>
+              <small>Reprocess materials into virgin-equivalent feedstocks</small>
+            </div>
+            <div class="hier-tier tier-4">
+              <span class="hier-rank">4. ENERGY RECOVERY</span>
+              <strong>Waste-to-Energy</strong>
+              <small>Controlled biomethanation and thermal recovery</small>
+            </div>
+            <div class="hier-tier tier-5">
+              <span class="hier-rank">5. LEAST PREFERRED</span>
+              <strong>Sanitary Landfill</strong>
+              <small>Engineered containment for non-recyclable residual waste</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="#" class="brand-logo footer-logo">
+          <span class="logo-icon-wrap">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </span>
+          <span class="brand-text">Waste<span class="highlight">Wise</span></span>
+        </a>
+        <p class="footer-mission">
+          An interactive environmental studies initiative advocating for zero-waste households, source segregation, and responsible citizenship.
+        </p>
+        <span class="built-tag">Built with 100% Vanilla HTML5, CSS3, &amp; JavaScript</span>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Features</h4>
+        <ul class="footer-links">
+          <li><a href="#classifier">Smart Classifier</a></li>
+          <li><a href="#game">Segregation Game</a></li>
+          <li><a href="#tracker">Waste Diary</a></li>
+          <li><a href="#calculator">Impact Calculator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Education</h4>
+        <ul class="footer-links">
+          <li><a href="#guide">Disposal Guide</a></li>
+          <li><a href="#upcycling">Upcycling Projects</a></li>
+          <li><a href="#quiz">Eco Literacy Quiz</a></li>
+          <li><a href="#challenges">Daily Challenges</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Project Specs</h4>
+        <ul class="footer-specs">
+          <li><strong>Course:</strong> Environmental Studies (EVS)</li>
+          <li><strong>Architecture:</strong> Client-Side Single Page</li>
+          <li><strong>Storage:</strong> HTML5 Web Storage API</li>
+          <li><strong>No Trackers:</strong> 100% Offline Capable</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; WasteWise – College Environmental Studies Project. Created for educational awareness and sustainable community engagement.</p>
+      <a href="#hero" class="back-to-top-btn" aria-label="Back to top">
+        <span>Back to Top &uarr;</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Notification Toast for Copied/Success/Info -->
+  <div class="app-toast" id="appToast" role="alert" aria-live="assertive" style="display: none;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
